@@ -1,0 +1,21 @@
+sudo mkdir /mnt/tmp
+
+sudo chmod 1777 /mnt/tmp
+
+
+\# Move the existing tmp contents
+
+sudo rsync -av /tmp/ /mnt/tmp/
+
+
+
+\# Update fstab to use the new location
+
+echo "none /tmp tmpfs defaults,size=2G 0 0" | sudo tee -a /etc/fstab
+
+
+
+\# Reboot to apply changes
+
+sudo reboot
+
